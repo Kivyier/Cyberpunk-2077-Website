@@ -23,10 +23,10 @@
     <div class="container header-inner">
       <div class="header-brand">
         <a href="#hero" class="logo" aria-label="Cyberpunk 2077 home">
-          <img src="Landing Page_files/logo-franchise-yellow-en@1x-b4c9e65b.png" alt="Cyberpunk 2077">
+          <img src="images/logo-franchise-yellow.png" alt="Cyberpunk 2077">
         </a>
         <a href="#features" class="update-badge" aria-label="View Update 2.3">
-          <img src="Landing Page_files/badge-23@1x-b7250e79.png" alt="Update 2.3">
+          <img src="images/badge-23.png" alt="Update 2.3">
         </a>
       </div>
 
@@ -195,7 +195,7 @@
     </section>
 
     <!-- ===========================
-         GALLERY / MEDIA SECTION
+         MEDIA SECTION
          =========================== -->
     <section id="gallery" class="bg-texture-black section-padding">
       <div class="container">
@@ -261,17 +261,6 @@
        =========================== -->
   <footer id="site-footer" class="bg-texture-black">
     <div class="container">
-      <div class="footer-socials">
-        <span>Find us on</span>
-        <a href="javascript:void(0)" data-footer-noop aria-label="YouTube">You</a>
-        <a href="javascript:void(0)" data-footer-noop aria-label="Facebook">f</a>
-        <a href="javascript:void(0)" data-footer-noop aria-label="Twitter">X</a>
-        <a href="javascript:void(0)" data-footer-noop aria-label="Forums">⌁</a>
-        <a href="javascript:void(0)" data-footer-noop aria-label="Discord">◈</a>
-        <a href="javascript:void(0)" data-footer-noop aria-label="Instagram">◎</a>
-        <a href="javascript:void(0)" data-footer-noop aria-label="Tumblr">t</a>
-        <a href="javascript:void(0)" data-footer-noop aria-label="Twitch">▣</a>
-      </div>
       <hr class="footer-rule">
       <div class="footer-partners">
         <img src="images/nvidia.svg" alt="NVIDIA GeForce RTX">
@@ -315,7 +304,6 @@
       const isOpen = navDesktop.classList.toggle('is-open');
       navToggle.setAttribute('aria-expanded', isOpen);
       navToggle.classList.toggle('is-open', isOpen);
-      navDesktop.style.left = isOpen ? '0' : '-100%';
     });
 
     navDesktop.querySelectorAll('a').forEach(link => {
@@ -323,7 +311,6 @@
         navDesktop.classList.remove('is-open');
         navToggle.setAttribute('aria-expanded', 'false');
         navToggle.classList.remove('is-open');
-        navDesktop.style.left = '-100%';
       });
     });
 

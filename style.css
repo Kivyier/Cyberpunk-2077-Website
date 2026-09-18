@@ -1,4 +1,3 @@
-
 /* ==========================================================================
    1. VARIABLES & CUSTOM PROPERTIES
    ========================================================================== */
@@ -65,7 +64,7 @@ html {
 }
 
 body {
-  background-color: var(--cp-black);
+  background-color: rgba(0, 0, 0, 0.78);
   color: var(--cp-white);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -326,14 +325,15 @@ img, picture, video, canvas, svg {
    6. HEADER
    ========================================================================== */
 #site-header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   height: var(--header-height);
-  background-color: var(--cp-black);
+  background-color: rgba(0, 0, 0, 0.88);
   border-top: 3px solid var(--cp-blue);
   border-left: 3px solid var(--cp-blue);
+  border-right: 3px solid var(--cp-blue);
   border-bottom: 1px solid rgba(0, 240, 255, 0.2);
   z-index: 1000;
   display: flex;
@@ -761,6 +761,8 @@ img, picture, video, canvas, svg {
   border: 8px solid var(--cp-yellow);
   padding: 0;
   position: relative;
+  width: min(100%, 920px);
+  margin: 0 auto;
   touch-action: pan-y;
   box-shadow: 0 0 0 1px rgba(252, 238, 9, 0.2);
 }
@@ -802,7 +804,8 @@ img, picture, video, canvas, svg {
   place-items: center;
   padding: 0;
   color: var(--cp-white);
-  background: transparent;
+  background: transparent !important;
+  background-color: transparent !important;
   border: 0;
   font-family: Arial, sans-serif;
   font-size: 2.75rem;
@@ -837,6 +840,7 @@ img, picture, video, canvas, svg {
   align-items: center;
   align-self: stretch;
   text-align: left;
+  transform: translateX(70px);
 }
 
 .features-sidebar {
@@ -845,11 +849,12 @@ img, picture, video, canvas, svg {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-content: center;
   gap: 0.25rem;
   padding-top: 0;
   align-self: stretch;
+  transform: translateX(70px);
 }
 
 .features-heading {
@@ -861,28 +866,20 @@ img, picture, video, canvas, svg {
 }
 
 .feature-tab {
-  min-width: 150px;
-  padding: 0.8rem 1.5rem;
+  min-width: 190px;
+  padding: 1rem 1.75rem;
   background: transparent;
   border: 2px solid var(--cp-yellow);
   color: var(--cp-yellow);
   font-family: var(--font-heading);
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   text-transform: uppercase;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
   position: relative;
-  clip-path: none;
+  clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%, 0 14px);
   transition: color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
-}
-
-.feature-tab:first-of-type {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-}
-
-.feature-tab:last-of-type {
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
 }
 
 .feature-tab::after {
@@ -1152,9 +1149,9 @@ img, picture, video, canvas, svg {
 .character-label::before {
   content: '';
   position: absolute;
-  left: 0.8rem;
+  left: 0;
   top: 50%;
-  width: 1.25rem;
+  width: 2rem;
   height: 3px;
   background: var(--cp-yellow);
   transform: translateY(-50%);
@@ -1499,9 +1496,58 @@ img, picture, video, canvas, svg {
 
 .footer-socials a {
   color: #00e5ff;
-  font-size: 1.8rem;
+  width: 2.35rem;
+  height: 2.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
   line-height: 1;
   text-decoration: none;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.footer-socials a:hover,
+.footer-socials a:focus-visible {
+  color: var(--cp-white);
+  transform: translateY(-3px);
+}
+
+.social-youtube {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  font-size: 0.7rem !important;
+  line-height: 0.8;
+}
+
+.social-youtube b {
+  padding: 0.12rem 0.18rem;
+  border-radius: 0.2rem;
+  background: currentColor;
+  color: var(--cp-black);
+  font-size: 0.72rem;
+}
+
+.social-facebook {
+  border-radius: 50%;
+  background: currentColor;
+  color: var(--cp-black) !important;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+}
+
+.social-instagram {
+  border: 3px solid currentColor;
+  border-radius: 0.55rem;
+  font-size: 2.1rem !important;
+}
+
+.social-twitch {
+  border: 3px solid currentColor;
+  font-size: 1.55rem !important;
+  font-weight: 700;
 }
 
 .footer-rule {
@@ -1602,7 +1648,7 @@ img, picture, video, canvas, svg {
 }
 
 /* ==========================================================================
-   14. RESPONSIVE DESIGN (MEDIA QUERIES)
+   14. RESPONSIVE DESIGN 
    ========================================================================== */
 
 /* Mobile Devices */
@@ -1621,6 +1667,7 @@ img, picture, video, canvas, svg {
   
   .nav-mobile-toggle {
    display: block;
+   background: transparent;
   }
 
   .header-inner {
@@ -1658,7 +1705,9 @@ img, picture, video, canvas, svg {
    left: -100%;
    width: 100%;
    height: calc(100vh - var(--header-height));
-   background-color: var(--cp-black);
+   background-color: rgba(0, 0, 0, 0.75);
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
    flex-direction: column;
    align-items: stretch;
    justify-content: flex-start;
@@ -1847,6 +1896,10 @@ img, picture, video, canvas, svg {
   
   .feature-tab {
    flex: 1 1 150px;
+   min-width: 0;
+   padding: 0.8rem 1.5rem;
+   font-size: 1rem;
+   text-align: center;
   }
   
   .characters-grid {
@@ -1865,8 +1918,17 @@ img, picture, video, canvas, svg {
      "sidebar";
   }
 
+  .feature-image-container {
+   width: 100%;
+  }
+
   .features-details {
+    transform: none;
    text-align: left;
+  }
+
+  .features-sidebar {
+   transform: none;
   }
 
   .about-image-frame {
