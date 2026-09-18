@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Enter the world of Cyberpunk 2077 — a story-driven, open world RPG of the dark future from CD PROJEKT RED, creators of The Witcher series of games.">
   <title>Cyberpunk 2077 — Night City Awaits</title>
 
   <!-- Google Fonts -->
@@ -10,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 
+  <!-- External Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,8 +22,11 @@
   <header id="site-header">
     <div class="container header-inner">
       <div class="header-brand">
-        <a href="#hero" class="logo">
+        <a href="#hero" class="logo" aria-label="Cyberpunk 2077 home">
           <img src="Landing Page_files/logo-franchise-yellow-en@1x-b4c9e65b.png" alt="Cyberpunk 2077">
+        </a>
+        <a href="#features" class="update-badge" aria-label="View Update 2.3">
+          <img src="Landing Page_files/badge-23@1x-b7250e79.png" alt="Update 2.3">
         </a>
       </div>
 
@@ -30,9 +35,14 @@
           <li><a class="nav-link nav-link-play" href="#hero">Play</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#characters">Characters</a></li>
+          <li><a class="nav-link" href="#gallery">Media</a></li>
           <li><a class="nav-link-buy" href="#features">Buy Now</a></li>
         </ul>
       </nav>
+
+      <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -43,19 +53,22 @@
     <section id="hero" class="bg-flat-yellow">
       <div class="hero-content">
         <a href="#features" class="hero-play cp-btn btn-outline-dark">Play Now</a>
-        <div class="platform-labels">
+        <div class="platform-labels" aria-label="Available platforms">
           <img class="platform-label platform-xbox" src="images/platform-xbox.png" alt="Xbox Series X|S">
-          <img class="platform-label platform-ps5" src="images/platform-ps5.png" alt="PlayStation 5">
+          <img class="platform-label platform-ps5" src="images/platform-ps5.png" alt="PlayStation 5 Pro Enhanced">
           <img class="platform-label platform-pc" src="images/platform-pc.png" alt="PC">
+          <img class="platform-label platform-switch" src="images/platform-switch.png" alt="Nintendo Switch 2">
+          <img class="platform-label platform-mac" src="images/platform-mac.png" alt="Mac">
         </div>
       </div>
+
       <div class="hero-artwork">
         <img src="images/hero-egs.jpg" alt="Cyberpunk 2077 character in Night City">
       </div>
     </section>
 
     <!-- ===========================
-         LEGEND SECTION
+         YOUR LEGEND STARTS HERE
          =========================== -->
     <section id="legend" class="bg-texture-black section-padding-lg">
       <div class="container">
@@ -80,17 +93,21 @@
         <div class="about-content">
           <div class="about-copy">
             <p class="text-muted">
-              Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City.
+              Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City — a dangerous megalopolis obsessed with power, glamour, and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.
+            </p>
+            <p class="text-muted">
+              Developed by CD Projekt RED, the creators of The Witcher series, Cyberpunk 2077 pushes the boundaries of interactive storytelling with its deep narrative choices, stunning visuals, and unparalleled world-building.
             </p>
             <ul class="about-list">
               <li>Explore 6 unique districts of Night City</li>
               <li>Over 100 hours of story-driven content</li>
               <li>Deep RPG progression with cybernetic augmentations</li>
               <li>Dynamic open world with day-night cycle</li>
+              <li>Multiple endings based on your choices</li>
             </ul>
           </div>
           <div class="about-image-frame">
-            <img src="images/screenshot-speed.jpg" alt="Night City street scene">
+            <img src="images/screenshot-speed.jpg" alt="Night City street scene with a futuristic vehicle">
           </div>
         </div>
       </div>
@@ -101,21 +118,26 @@
          =========================== -->
     <section id="features" class="bg-texture-black section-padding">
       <div class="container">
-        <h2 class="features-heading">What's New</h2>
+        <h2 id="features-heading" class="features-heading">What's New</h2>
         <div class="features-layout">
           <div class="features-visual">
             <div class="feature-image-container">
-              <img src="images/ps5-pro-update.jpg" alt="Cyberpunk 2077 Update">
+              <img id="feature-image" src="images/ps5-pro-update.jpg" alt="Cyberpunk 2077 Now Enhanced for PlayStation 5 Pro with free update">
+              <button class="feature-arrow feature-arrow-prev" type="button" aria-label="Previous feature image">&#8592;</button>
+              <button class="feature-arrow feature-arrow-next" type="button" aria-label="Next feature image">&#8594;</button>
             </div>
           </div>
           <div class="features-sidebar">
-            <button class="feature-tab active">What's New</button>
-            <button class="feature-tab">Story</button>
-            <button class="feature-tab">Night City</button>
+            <button class="feature-tab active" data-tab="whatsnew">What's New</button>
+            <button class="feature-tab" data-tab="story">Story</button>
+            <button class="feature-tab" data-tab="nightcity">Night City</button>
+            <button class="feature-tab" data-tab="gameplay">Gameplay</button>
           </div>
           <div class="features-details">
-            <p class="text-muted">
-              A free PlayStation 5 Pro upgrade hits Night City! Raise your game with advanced ray tracing features, higher frame rates, and more.
+            <p id="feature-description" class="text-muted">
+              A free PlayStation 5 Pro upgrade hits Night City! Raise your game with PlayStation Spectral Super Resolution (PSSR), advanced
+              ray tracing features, higher frame rates, and more. Choose from three graphics modes: Performance, Ray Tracing, and Ray
+              Tracing Pro, and discover enhanced visuals, smoother action, and everything Cyberpunk 2077 on PS5 Pro has to offer.
             </p>
           </div>
         </div>
@@ -134,26 +156,367 @@
         <div class="characters-grid">
           <div class="character-card">
             <div class="character-image-wrapper">
-              <img src="images/character-johnny.png" alt="Johnny Silverhand">
+              <img src="images/character-johnny.png" alt="Johnny Silverhand — legendary rockerboy and rebel">
             </div>
             <div class="character-label">Johnny Silverhand</div>
           </div>
           <div class="character-card">
             <div class="character-image-wrapper">
-              <img src="images/character-jackie.png" alt="Jackie Welles">
+              <img src="images/character-jackie.png" alt="Jackie Welles — V's loyal partner and best friend">
             </div>
             <div class="character-label">Jackie Welles</div>
           </div>
           <div class="character-card">
             <div class="character-image-wrapper">
-              <img src="images/character-adam.png" alt="Adam Smasher">
+              <img src="images/character-adam.png" alt="Adam Smasher — ruthless Arasaka cyborg enforcer">
             </div>
             <div class="character-label">Adam Smasher</div>
+          </div>
+          <div class="character-card">
+            <div class="character-image-wrapper">
+              <img src="images/character-judy.png" alt="Judy Alvarez — expert braindance technician">
+            </div>
+            <div class="character-label">Judy Alvarez</div>
+          </div>
+          <div class="character-card">
+            <div class="character-image-wrapper">
+              <img src="images/character-v.png" alt="V — the protagonist, a cyberpunk mercenary outlaw">
+            </div>
+            <div class="character-label">V</div>
+          </div>
+          <div class="character-card">
+            <div class="character-image-wrapper">
+              <img src="images/character-panam.png" alt="Panam Palmer — nomad and fierce ally">
+            </div>
+            <div class="character-label">Panam Palmer</div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ===========================
+         GALLERY / MEDIA SECTION
+         =========================== -->
+    <section id="gallery" class="bg-texture-black section-padding">
+      <div class="container">
+        <div class="gallery-header">
+          <h2 class="gallery-title">Media</h2>
+          <div class="gallery-tabs" role="tablist" aria-label="Media categories">
+            <button class="gallery-tab active" type="button" data-gallery-tab="videos">Videos</button>
+            <button class="gallery-tab" type="button" data-gallery-tab="wallpapers">Wallpapers</button>
+            <button class="gallery-tab" type="button" data-gallery-tab="screenshots">Screenshots</button>
+            <button class="gallery-tab" type="button" data-gallery-tab="concepts">Concept Arts</button>
+          </div>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+        </div>
+
+        <div class="gallery-pagination">
+          <button class="pagination-btn" id="gallery-prev" type="button" aria-label="Previous media page">&lt;</button>
+          <span class="text-muted" id="gallery-page">1 of 4</span>
+          <button class="pagination-btn" id="gallery-next" type="button" aria-label="Next media page">&gt;</button>
+        </div>
+
+        <div class="service-tabs">
+          <a href="#" class="service-tab">Cyberpunk 2077</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         NEWSLETTER SECTION
+         =========================== -->
+    <section id="newsletter" class="bg-flat-yellow section-padding edge-torn-top">
+      <div class="container">
+        <div class="newsletter-content">
+          <h2 class="newsletter-title">Sign Up for the Official Cyberpunk 2077 Newsletter</h2>
+          <p>
+            From games to beyond, keep your feed up to date with the latest news and
+            announcements on all things Cyberpunk 2077!
+          </p>
+          <form class="newsletter-form" onsubmit="return false;">
+            <div class="form-row">
+              <input type="email" placeholder="Enter your email address" class="newsletter-input" aria-label="Email address">
+              <button type="submit" class="cp-btn btn-dark newsletter-btn">Submit</button>
+            </div>
+            <div class="form-consent">
+              <input type="checkbox" class="checkbox-custom" id="consent-check">
+              <label class="consent-text" for="consent-check">
+                I would like to receive news, special offers, and other information from CD PROJEKT RED and I am 16 years or older.
+                <br><br>
+                <small>CD PROJEKT RED will be responsible for your personal data. For more information, please check our CD PROJEKT RED Privacy Policy.</small>
+                <br><br>
+                <small>This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</small>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- ===========================
+       FOOTER
+       =========================== -->
+  <footer id="site-footer" class="bg-texture-black">
+    <div class="container">
+      <div class="footer-socials">
+        <span>Find us on</span>
+        <a href="javascript:void(0)" data-footer-noop aria-label="YouTube">You</a>
+        <a href="javascript:void(0)" data-footer-noop aria-label="Facebook">f</a>
+        <a href="javascript:void(0)" data-footer-noop aria-label="Twitter">X</a>
+        <a href="javascript:void(0)" data-footer-noop aria-label="Forums">⌁</a>
+        <a href="javascript:void(0)" data-footer-noop aria-label="Discord">◈</a>
+        <a href="javascript:void(0)" data-footer-noop aria-label="Instagram">◎</a>
+        <a href="javascript:void(0)" data-footer-noop aria-label="Tumblr">t</a>
+        <a href="javascript:void(0)" data-footer-noop aria-label="Twitch">▣</a>
+      </div>
+      <hr class="footer-rule">
+      <div class="footer-partners">
+        <img src="images/nvidia.svg" alt="NVIDIA GeForce RTX">
+        <img src="images/alienware.svg" alt="Alienware">
+        <img src="images/amd.svg" alt="AMD Ryzen">
+        <span class="footer-rating">M<br><small>ESRB</small></span>
+      </div>
+      <hr class="footer-rule">
+      <div class="footer-links">
+        <a href="javascript:void(0)" data-footer-noop>Terms of Use &amp; Privacy Policy</a>
+        <a href="javascript:void(0)" data-footer-noop>Careers</a>
+        <a href="javascript:void(0)" data-footer-noop>User Agreement</a>
+        <a href="javascript:void(0)" data-footer-noop>Fan Content Guidelines</a>
+        <a href="javascript:void(0)" data-footer-noop>Cookie Declaration</a>
+        <a href="javascript:void(0)" data-footer-noop>REDmod</a>
+      </div>
+      <hr class="footer-rule">
+      <div class="footer-legal">
+        <img src="images/cdprojektred.svg" alt="CD Projekt Red">
+        <p>&copy; 2026 CD PROJEKT RED S.A. All rights reserved. CD PROJEKT RED, the CD PROJEKT RED logo, Cyberpunk, Cyberpunk 2077 and the Cyberpunk 2077 logo are trademarks and/or registered trademarks of CD PROJEKT RED S.A. in the US and/or other countries.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===========================
+       SCRIPTS
+       =========================== -->
+  <script>
+    document.querySelectorAll('[data-footer-noop]').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+
+    // Mobile navigation toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navDesktop = document.getElementById('nav-desktop');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navDesktop.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+      navToggle.classList.toggle('is-open', isOpen);
+      navDesktop.style.left = isOpen ? '0' : '-100%';
+    });
+
+    navDesktop.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navDesktop.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.classList.remove('is-open');
+        navDesktop.style.left = '-100%';
+      });
+    });
+
+    // Keep the navigation state aligned with the section currently in view.
+    const header = document.getElementById('site-header');
+    const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-link-buy)')];
+    const sections = navLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+    const updateActiveNav = () => {
+      const marker = window.innerHeight * 0.4;
+      const sectionAtMarker = sections
+        .map(section => ({ section, top: section.getBoundingClientRect().top }))
+        .filter(item => item.top <= marker)
+        .sort((a, b) => a.top - b.top)
+        .pop();
+      const atPageBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      const activeId = atPageBottom
+        ? `#${sections[sections.length - 1].id}`
+        : sectionAtMarker
+          ? `#${sectionAtMarker.section.id}`
+          : '#hero';
+      navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === activeId));
+    };
+
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+      updateActiveNav();
+    });
+    updateActiveNav();
+
+    // Feature tabs and touch swiping mirror the original multi-image feature carousel.
+    const featureImage = document.getElementById('feature-image');
+    const featureHeading = document.getElementById('features-heading');
+    const featureDescription = document.getElementById('feature-description');
+    const featureSlides = {
+      whatsnew: [
+        ['images/ps5-pro-update.jpg', 'Cyberpunk 2077 PS5 Pro update'],
+      ],
+      story: [
+        ['images/screenshot-corner.jpg', 'V in a Night City alley'],
+        ['images/screenshot-maelstrom.jpg', 'V facing the Maelstrom gang'],
+        ['images/screenshot-outnumbered.jpg', 'V outnumbered in combat'],
+      ],
+      nightcity: [
+        ['images/screenshot-above.jpg', 'Night City skyline from above'],
+        ['images/screenshot-immerse.jpg', 'Night City streets at night'],
+        ['images/screenshot-regrets.jpg', 'Night City at dusk'],
+      ],
+      gameplay: [
+        ['images/screenshot-always.jpg', 'V bringing a gun to a knife fight'],
+        ['images/screenshot-speed.jpg', 'High-speed Cyberpunk 2077 action'],
+        ['images/screenshot-tech.jpg', 'Cyberpunk 2077 technology and cyberware'],
+      ],
+    };
+    const featureContent = {
+      whatsnew: {
+        heading: "What's New",
+        description: "A free PlayStation 5 Pro upgrade hits Night City! Raise your game with PlayStation Spectral Super Resolution (PSSR), advanced ray tracing features, higher frame rates, and more. Choose from three graphics modes: Performance, Ray Tracing, and Ray Tracing Pro, and discover enhanced visuals, smoother action, and everything Cyberpunk 2077 on PS5 Pro has to offer.",
+      },
+      story: {
+        heading: 'Story',
+        description: 'Take on the job of a lifetime — to steal a one-of-a-kind implant that is the key to immortality — and build your legend in the vast open world of Night City, where the choices you make shape the story and the people around you. Take on a variety of gigs to go from up-and-coming mercenary to legendary cyberpunk, all while uncovering the mysteries of the priceless implant everyone is dying to get their hands on.',
+      },
+      nightcity: {
+        heading: 'Night City',
+        description: 'A megalopolis packed to the brim with things to do, places to see, and people to meet. And it’s up to you where to go, when to go, and how to get there. From the polished high rises of Corpo Plaza to the spacious outskirts of the Badlands, Night City is teeming with secrets to discover.',
+      },
+      gameplay: {
+        heading: 'Gameplay',
+        description: 'Invest in a variety of skills and perks to build a playstyle that fits your character. Use upgradeable weapons, hacking skills, and body-enhancing implants to become the best hired gun in town. Engage in guns-blazing combat, strike down enemies from a distance, or stealth your way through carefully guarded locations.',
+      },
+    };
+    let activeFeature = 'whatsnew';
+    let activeFeatureSlide = 0;
+    const previousFeatureButton = document.querySelector('.feature-arrow-prev');
+    const nextFeatureButton = document.querySelector('.feature-arrow-next');
+
+    const showFeatureSlide = (feature, index) => {
+      const slides = featureSlides[feature];
+      activeFeature = feature;
+      activeFeatureSlide = (index + slides.length) % slides.length;
+      featureImage.src = slides[activeFeatureSlide][0];
+      featureImage.alt = slides[activeFeatureSlide][1];
+      featureHeading.textContent = featureContent[feature].heading;
+      featureDescription.textContent = featureContent[feature].description;
+      const hasMultipleSlides = slides.length > 1;
+      previousFeatureButton.hidden = !hasMultipleSlides;
+      nextFeatureButton.hidden = !hasMultipleSlides;
+    };
+ 
+    document.querySelectorAll('.feature-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.feature-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        showFeatureSlide(btn.dataset.tab, 0);
+      });
+      previousFeatureButton.addEventListener('click', () => {
+        showFeatureSlide(activeFeature, activeFeatureSlide - 1);
+      });
+      nextFeatureButton.addEventListener('click', () => {
+        showFeatureSlide(activeFeature, activeFeatureSlide + 1);
+      });
+      showFeatureSlide(activeFeature, activeFeatureSlide);
+    });
+ 
+    let featureSwipeStartX = null;
+    const featureVisual = document.querySelector('.feature-image-container');
+    featureVisual.addEventListener('touchstart', event => {
+      featureSwipeStartX = event.changedTouches[0].clientX;
+    }, { passive: true });
+    featureVisual.addEventListener('touchend', event => {
+      if (featureSwipeStartX === null) return;
+      const distance = event.changedTouches[0].clientX - featureSwipeStartX;
+      featureSwipeStartX = null;
+      if (Math.abs(distance) < 40) return;
+      showFeatureSlide(activeFeature, activeFeatureSlide + (distance < 0 ? 1 : -1));
+    }, { passive: true });
+
+    // Media category and pagination interaction.
+    const galleryGrid = document.getElementById('gallery-grid');
+    const galleryPage = document.getElementById('gallery-page');
+    const galleryMedia = {
+      videos: [
+        ['images/gallery-01.jpg', 'Cyberpunk 2077 official video'],
+        ['images/gallery-02.jpg', 'Cyberpunk 2077 official trailer'],
+        ['images/gallery-03.jpg', 'Cyberpunk 2077 Night City video'],
+      ],
+      wallpapers: [
+        ['images/gallery-01.jpg', 'Cyberpunk 2077 wallpaper'],
+        ['images/gallery-02.jpg', 'Night City wallpaper'],
+        ['images/gallery-03.jpg', 'Night City streets wallpaper'],
+        ['images/gallery-04.jpg', 'Cyberpunk 2077 wallpaper'],
+      ],
+      screenshots: [
+        ['images/screenshot1.png', 'Cyberpunk 2077 screenshot'],
+        ['images/screenshot2.png', 'Cyberpunk 2077 screenshot'],
+        ['images/screenshot3.png', 'Cyberpunk 2077 screenshot'],
+      ],
+      concepts: [
+        ['images/gallery-02.jpg', 'Night City concept art'],
+        ['images/gallery-03.jpg', 'Cyberpunk 2077 concept art'],
+        ['images/gallery-04.jpg', 'Night City skyline concept art'],
+      ],
+    };
+    let activeGalleryTab = 'videos';
+    let activeGalleryPage = 0;
+    const galleryPageSize = 3;
+
+    const renderGallery = () => {
+      const media = galleryMedia[activeGalleryTab];
+      const pageCount = Math.ceil(media.length / galleryPageSize);
+      activeGalleryPage = (activeGalleryPage + pageCount) % pageCount;
+      const visibleMedia = media.slice(activeGalleryPage * galleryPageSize, (activeGalleryPage + 1) * galleryPageSize);
+      galleryGrid.innerHTML = visibleMedia.map(([src, alt]) => `
+        <figure class="gallery-item gallery-item-${activeGalleryTab}">
+          <img src="${src}" alt="${alt}" loading="lazy">
+        </figure>
+      `).join('');
+      galleryPage.textContent = `${activeGalleryPage + 1} of ${pageCount}`;
+    };
+
+    document.querySelectorAll('.gallery-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.gallery-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeGalleryTab = btn.dataset.galleryTab;
+        activeGalleryPage = 0;
+        renderGallery();
+      });
+    });
+    document.getElementById('gallery-prev').addEventListener('click', () => {
+      activeGalleryPage -= 1;
+      renderGallery();
+    });
+    document.getElementById('gallery-next').addEventListener('click', () => {
+      activeGalleryPage += 1;
+      renderGallery();
+    });
+    renderGallery();
+
+    // Intersection Observer — fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    faders.forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
