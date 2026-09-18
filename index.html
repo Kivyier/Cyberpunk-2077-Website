@@ -3,54 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cyberpunk 2077 - Landing Page</title>
+  <title>Cyberpunk 2077 — Night City Awaits</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <header>
-    <nav>
-      <h1>Cyberpunk 2077</h1>
-      <ul>
-        <li><a class="nav-link" href="#hero">Play</a></li>
-        <li><a class="nav-link" href="#features">What's New</a></li>
-        <li><a class="nav-link" href="#gallery">Media</a></li>
-      </ul>
-    </nav>
+  <!-- ===========================
+       HEADER / NAVIGATION
+       =========================== -->
+  <header id="site-header">
+    <div class="container header-inner">
+      <div class="header-brand">
+        <a href="#hero" class="logo">
+          <img src="Landing Page_files/logo-franchise-yellow-en@1x-b4c9e65b.png" alt="Cyberpunk 2077">
+        </a>
+      </div>
+
+      <nav class="nav-desktop" id="nav-desktop">
+        <ul class="nav-links" id="nav-links">
+          <li><a class="nav-link nav-link-play" href="#hero">Play</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#characters">Characters</a></li>
+          <li><a class="nav-link-buy" href="#features">Buy Now</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section id="hero">
-      <h2>Welcome to Night City</h2>
-      <p>Placeholder for the main hero pitch and description.</p>
-      <button class="btn-primary">Play Now</button>
+    <!-- ===========================
+         HERO SECTION
+         =========================== -->
+    <section id="hero" class="bg-flat-yellow">
+      <div class="hero-content">
+        <a href="#features" class="hero-play cp-btn btn-outline-dark">Play Now</a>
+        <div class="platform-labels">
+          <img class="platform-label platform-xbox" src="images/platform-xbox.png" alt="Xbox Series X|S">
+          <img class="platform-label platform-ps5" src="images/platform-ps5.png" alt="PlayStation 5">
+          <img class="platform-label platform-pc" src="images/platform-pc.png" alt="PC">
+        </div>
+      </div>
+      <div class="hero-artwork">
+        <img src="images/hero-egs.jpg" alt="Cyberpunk 2077 character in Night City">
+      </div>
     </section>
 
-    <section id="features">
-      <h3>Game Features</h3>
-      <div class="features-grid">
-        <div class="feature-card">
-          <p>Feature 1 details go here.</p>
-        </div>
-        <div class="feature-card">
-          <p>Feature 2 details go here.</p>
+    <!-- ===========================
+         LEGEND SECTION
+         =========================== -->
+    <section id="legend" class="bg-texture-black section-padding-lg">
+      <div class="container">
+        <div class="legend-content">
+          <h2 class="legend-title bracket-decorator">Your Legend Starts Here</h2>
+          <p class="legend-text text-muted text-italic">
+            Step into the shoes of V, a cyberpunk mercenary for hire and do what it takes to make a name for yourself
+            in Night City, a megalopolis obsessed with power, glamour, and body modification. Legends are made here.
+            What will yours be?
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="gallery">
-      <h3>Media Gallery</h3>
-      <div class="media-grid">
-        <img src="images/placeholder1.jpg" alt="First game screenshot placeholder">
-        <img src="images/placeholder2.jpg" alt="Second game screenshot placeholder">
-        <img src="images/placeholder3.jpg" alt="Third game screenshot placeholder">
+    <!-- ===========================
+         ABOUT SECTION
+         =========================== -->
+    <section id="about" class="bg-texture-black about-section">
+      <div class="container">
+        <h2 class="about-heading">About</h2>
+        <p class="about-subheading">Cyberpunk 2077</p>
+        <div class="about-content">
+          <div class="about-copy">
+            <p class="text-muted">
+              Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City.
+            </p>
+            <ul class="about-list">
+              <li>Explore 6 unique districts of Night City</li>
+              <li>Over 100 hours of story-driven content</li>
+              <li>Deep RPG progression with cybernetic augmentations</li>
+              <li>Dynamic open world with day-night cycle</li>
+            </ul>
+          </div>
+          <div class="about-image-frame">
+            <img src="images/screenshot-speed.jpg" alt="Night City street scene">
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- ===========================
+         FEATURES SECTION
+         =========================== -->
+    <section id="features" class="bg-texture-black section-padding">
+      <div class="container">
+        <h2 class="features-heading">What's New</h2>
+        <div class="features-layout">
+          <div class="features-visual">
+            <div class="feature-image-container">
+              <img src="images/ps5-pro-update.jpg" alt="Cyberpunk 2077 Update">
+            </div>
+          </div>
+          <div class="features-sidebar">
+            <button class="feature-tab active">What's New</button>
+            <button class="feature-tab">Story</button>
+            <button class="feature-tab">Night City</button>
+          </div>
+          <div class="features-details">
+            <p class="text-muted">
+              A free PlayStation 5 Pro upgrade hits Night City! Raise your game with advanced ray tracing features, higher frame rates, and more.
+            </p>
+          </div>
+        </div>
+        <a href="#" class="features-learn-more cp-btn btn-primary">Learn More</a>
+      </div>
+    </section>
+
+    <!-- ===========================
+         CHARACTERS SECTION
+         =========================== -->
+    <section id="characters" class="bg-flat-yellow section-padding edge-torn-top">
+      <div class="container">
+        <div class="characters-header">
+          <h2 class="characters-title">Characters</h2>
+        </div>
+        <div class="characters-grid">
+          <div class="character-card">
+            <div class="character-image-wrapper">
+              <img src="images/character-johnny.png" alt="Johnny Silverhand">
+            </div>
+            <div class="character-label">Johnny Silverhand</div>
+          </div>
+          <div class="character-card">
+            <div class="character-image-wrapper">
+              <img src="images/character-jackie.png" alt="Jackie Welles">
+            </div>
+            <div class="character-label">Jackie Welles</div>
+          </div>
+          <div class="character-card">
+            <div class="character-image-wrapper">
+              <img src="images/character-adam.png" alt="Adam Smasher">
+            </div>
+            <div class="character-label">Adam Smasher</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
-
-  <footer>
-    <p>© 2026 CD PROJEKT RED S.A. All rights reserved.</p>
-  </footer>
-
 </body>
 </html>

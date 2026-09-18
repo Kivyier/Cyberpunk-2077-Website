@@ -1,145 +1,370 @@
+/* ==========================================================================
+   1. VARIABLES & CUSTOM PROPERTIES
+   ========================================================================== */
 :root {
-  --primary-color: #FCEE09;
-  --background-color: #121212;
-  --text-color: #FFFFFF;
-  --header-bg: #000000;
-  --accent-color: #00f0ff;
+  --cp-yellow: #FCEE09;
+  --cp-black: #000000;
+  --cp-white: #FFFFFF;
+  --cp-gray-muted: #a0a0a0;
+  --cp-blue: #00f0ff;
+  
+  --font-heading: 'Rajdhani', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+  --space-xxl: 12rem;
+  
+  --container-width: 1400px;
+  --header-height: 108px;
+  
+  --clip-button: polygon(0 0, calc(100% - 12px) 0%, 100% 12px, 100% 100%, 12px 100%, 0% calc(100% - 12px));
+  --clip-torn-top: polygon(0 20px, 5% 0, 10% 25px, 15% 5px, 20% 30px, 25% 10px, 30% 20px, 35% 0, 40% 30px, 45% 10px, 50% 25px, 55% 5px, 60% 20px, 65% 0, 70% 30px, 75% 10px, 80% 25px, 85% 5px, 90% 20px, 95% 0, 100% 25px, 100% 100%, 0 100%);
 }
 
+/* ==========================================================================
+   2. RESET & UNIVERSAL STYLES
+   ========================================================================== */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: Arial, sans-serif;
+  background-color: var(--cp-black);
+  color: var(--cp-white);
+  font-family: var(--font-body);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Grouped */
+.bg-texture-black {
+  background-color: var(--cp-black);
+  background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-flat-yellow {
+  background-color: var(--cp-yellow);
+  color: var(--cp-black);
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY
+   ========================================================================== */
 h1, h2, h3 {
-  color: var(--primary-color);
+  font-family: var(--font-heading);
   text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: var(--space-sm);
 }
 
-/* Layout */
-header {
-  background-color: var(--header-bg);
-  padding: 20px;
-  border-bottom: 2px solid var(--accent-color);
+h2 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+
+p { margin-bottom: var(--space-md); }
+
+.text-muted { color: var(--cp-gray-muted); }
+.text-italic { font-style: italic; }
+
+a {
+  color: var(--cp-yellow);
+  text-decoration: none;
 }
 
-nav {
+/* ==========================================================================
+   4. LAYOUT
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section-padding { padding: var(--space-xl) 0; }
+.section-padding-lg { padding: var(--space-xxl) 0; }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.edge-torn-top {
+  clip-path: var(--clip-torn-top);
+  margin-top: -25px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ==========================================================================
+   5. COMPONENTS (Buttons & Brackets)
+   ========================================================================== */
+.cp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  clip-path: var(--clip-button);
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary {
+  background-color: var(--cp-yellow);
+  color: var(--cp-black);
+}
+
+.btn-outline-dark {
+  background-color: transparent;
+  color: var(--cp-black);
+  box-shadow: inset 0 0 0 2px var(--cp-black);
+}
+
+.bracket-decorator {
+  display: inline-block;
+  position: relative;
+  padding: 0 var(--space-md);
+}
+
+.bracket-decorator::before,
+.bracket-decorator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: calc(100% + 20px);
+  border: 4px solid var(--cp-yellow);
+}
+
+.bracket-decorator::before { left: 0; border-right: none; }
+.bracket-decorator::after { right: 0; border-left: none; }
+
+/* ==========================================================================
+   6. HEADER
+   ========================================================================== */
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--cp-black);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-nav ul {
+.logo img { width: 250px; }
+
+.nav-links {
   display: flex;
-  gap: 20px;
   list-style: none;
+  gap: 2px;
 }
 
-/* Nested */
-section p {
-  color: var(--text-color);
-  margin-bottom: 15px;
+.nav-links li a {
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cp-yellow);
+  text-transform: uppercase;
+  padding: 0.55rem 1rem;
+  border: 2px solid var(--cp-yellow);
+  background: var(--cp-black);
 }
 
-/* ID */
+.nav-links .nav-link-buy {
+  color: var(--cp-black);
+  background-color: var(--cp-blue);
+  border-color: var(--cp-blue);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+
+/* ==========================================================================
+   7. HERO SECTION
+   ========================================================================== */
 #hero {
-  background-color: var(--primary-color);
-  color: var(--header-bg);
-  padding: 100px 20px;
-  text-align: center;
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  background: var(--cp-yellow);
 }
 
-#hero h2 {
-  color: var(--header-bg);
+.hero-play {
+  position: absolute;
+  top: 43%;
+  left: 10rem;
+  z-index: 3;
 }
 
-#hero p {
-  color: var(--header-bg);
-}
-
-#features, #gallery {
-  padding: 50px 20px;
-}
-
-/* Class */
-.features-grid {
+.platform-labels {
+  position: absolute;
+  top: calc(34% - 100px);
+  right: 10rem;
+  width: 20rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 1.25rem;
+  z-index: 3;
 }
 
-.feature-card {
-  background-color: var(--header-bg);
-  padding: 20px;
-  border: 1px solid var(--primary-color);
-}
-
-.media-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-
-.media-grid img {
+.platform-label { filter: brightness(0); }
+.hero-artwork {
+  position: absolute;
+  top: 0;
+  inset: 0;
   width: 100%;
-  height: 200px;
-  background-color: #333;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-artwork img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-.nav-link {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: bold;
+/* ==========================================================================
+   8. LEGEND & ABOUT SECTIONS
+   ========================================================================== */
+#legend { text-align: center; }
+.legend-content { max-width: 800px; margin: 0 auto; }
+.legend-title { color: var(--cp-yellow); }
+
+.about-heading { color: var(--cp-yellow); text-align: center; }
+.about-subheading { color: var(--cp-yellow); text-align: center; font-size: 3rem; }
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.nav-link:hover {
-  color: var(--accent-color);
+.about-list { list-style: none; padding: 0; }
+.about-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--cp-gray-muted);
+}
+.about-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  border-top: 0.35em solid transparent;
+  border-bottom: 0.35em solid transparent;
+  border-left: 0.5em solid var(--cp-yellow);
 }
 
-.btn-primary {
-  background-color: var(--header-bg);
-  color: var(--primary-color);
-  padding: 10px 20px;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
+.about-image-frame {
+  padding: 10px;
+  border: 3px solid var(--cp-yellow);
 }
 
-.btn-primary:hover {
-  background-color: var(--text-color);
-  color: var(--header-bg);
+/* ==========================================================================
+   9. FEATURES SECTION
+   ========================================================================== */
+.features-heading { color: var(--cp-yellow); text-align: center; }
+.features-layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas:
+    "visual visual"
+    "details sidebar";
+  gap: 2rem;
 }
 
-footer {
-  background-color: var(--header-bg);
+.features-visual { grid-area: visual; }
+.feature-image-container {
+  border: 8px solid var(--cp-yellow);
+  padding: 0;
+}
+
+.features-details { grid-area: details; }
+.features-sidebar {
+  grid-area: sidebar;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.feature-tab {
+  padding: 0.8rem 1.5rem;
+  background: transparent;
+  border: 2px solid var(--cp-yellow);
+  color: var(--cp-yellow);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.feature-tab.active {
+  background-color: var(--cp-yellow);
+  color: var(--cp-black);
+}
+
+/* ==========================================================================
+   10. CHARACTERS SECTION
+   ========================================================================== */
+#characters {
+  background-color: var(--cp-yellow);
+  position: relative;
+}
+
+.characters-title {
+  color: var(--cp-black);
   text-align: center;
-  padding: 20px;
-  border-top: 1px solid var(--primary-color);
+  font-size: 5rem;
 }
 
-@media (max-width: 1024px) {
-  .media-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  align-items: end;
 }
 
-@media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .features-grid, .media-grid {
-    grid-template-columns: 1fr;
-  }
+.character-card { position: relative; cursor: pointer; }
+.character-image-wrapper img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+}
+
+.character-label {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 5%;
+  width: 90%;
+  background-color: var(--cp-black);
+  color: var(--cp-yellow);
+  text-align: center;
+  padding: 0.8rem 1rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
 }
